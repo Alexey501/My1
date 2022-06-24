@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Locations>
+  <Project>
+    <vfs_file>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>D:\PCP-main\Lab3\Lab3.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 2" line=" 55" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 24" line=" 25" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 24" line=" 65" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 50" line=" 11" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 22" line=" 62" >
+      <vfs_project>D:\3 course\POP\My1\Lab 3\default.gpr</vfs_project>
+      <vfs_file>D:\3 course\POP\My1\Lab 3\src\main.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>
