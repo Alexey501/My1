@@ -13,11 +13,6 @@ namespace Lab_1__C_sharp_
 
         static void Main(string[] args)
         {
-            new Thread(() => MainThread()).Start();
-        }
-
-        static void MainThread()
-        {
             Console.Write("Введите количество потоков: ");
             String str = Console.ReadLine();
             int n = Convert.ToInt32(str);
@@ -25,7 +20,7 @@ namespace Lab_1__C_sharp_
             {
                 new Thread(() => calculation(i, random.Next(0, 999), random.Next(1, 5))).Start();
             }
-        }
+        }  
 
         static void calculation(int id, int end, int step)
         {
