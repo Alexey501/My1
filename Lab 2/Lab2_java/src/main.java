@@ -10,6 +10,7 @@ public class main {
     public static int min=Integer.MAX_VALUE;
     public static int [] Min;
     public static int n_min;
+
     public static void main(String[] args) {
         arr = new int[1000000];
         Random r = new Random();

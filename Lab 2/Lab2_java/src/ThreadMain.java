@@ -28,10 +28,10 @@ public class ThreadMain implements Runnable {
             Min();
         }
         public synchronized void Min(){
-            for(int i=0;i<n;i++) {
-                if(main.min_full>main.Min[i]){
-                    main.min_full=main.Min[i];
+
+                if(main.min_full>main.Min[n_arr]){
+                    main.min_full=main.Min[n_arr];
                 }
-            }
+
         }
 }
