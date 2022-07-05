@@ -12,7 +12,7 @@ public class Main {
         System.out.println("Введите количество товаров: ");
         int itemNumbers = sc.nextInt();
         sc.close();
-        int producers = 2;
+        int producers = 3;
         int consumers = 5;
         Manager manager = new Manager(storageSize);
         for (int i = 0; i < producers; i++) {

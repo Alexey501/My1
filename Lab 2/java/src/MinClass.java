@@ -27,7 +27,6 @@ public class MinClass {
         result[1] = minIndex;
         return result;
     }
-
     synchronized public void setMin(int value, int index) {
         if(value < minValue){
             minValue = value;

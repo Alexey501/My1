@@ -14,16 +14,7 @@ public class Main {
 
         Thread[] threads = minClass.threadsMin(threadsNum);
 
-        boolean notFinished = true;
-        while (notFinished){
-            for(Thread t : threads){
-                if(!Objects.equals(t.getState().toString(), "TERMINATED")){
-                    notFinished = true;
-                    break;
-                }
-                notFinished = false;
-            }
-        }
+
 
         int[] checkMin = minClass.partMin(0, arrLen);
         System.out.println("Результат: nums[" + minClass.minIndex + "] = " + minClass.minValue + "; Перевірка: nums[" + checkMin[1] + "] = " + checkMin[0]);
