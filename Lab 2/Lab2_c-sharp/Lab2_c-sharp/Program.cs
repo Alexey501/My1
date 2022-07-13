@@ -9,71 +9,67 @@ namespace Lab2_c_sharp
 {
     class Program
     {
+        public static int min = int.MaxValue;
+        public static int all_min = int.MaxValue;
+        public static int n_min;
+        public static int border;
         public static void Main(string[] args)
         {
-            new Program().RealMain();
-            Console.ReadKey();
-        }
-
-        private void RealMain()
-        {
-            var arr = new int[100000];
+            var arr = new int[1000000];
             var random = new Random();
             Console.Write("Введите количество потоков: ");
             String str = Console.ReadLine();
             int n = Convert.ToInt32(str);
+            border = arr.Length / n;
+            object locker = new object();
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = random.Next(-100000,100000);
+                arr[i] = random.Next(-100001, 100000);
             }
 
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                FindMain(arr, n);
+                new Thread(() => ThreadMain(n,arr,border*i,i,locker)).Start();
+                Thread.Sleep(100);
             }
+            Console.WriteLine("Минимальный елемент масива: "+all_min);
+            Console.ReadLine();
         }
-        private void FindMain(int[] arr, int threadsNum)
+        public static void ThreadMain(int n, int[] arr, int border,int index,object locker)
         {
-           
-            var startTime = DateTime.Now;
-
-            var threads = new Thread[threadsNum];
-
-            var min = int.MaxValue;
-            object _lock = new object();
-
-            for (int threadIdx = 0; threadIdx < threads.Length; threadIdx++)
+            bool acquiredLock = false;
+            try
             {
-                var threadIdxLocal = threadIdx;
-                threads[threadIdx] = new Thread(() =>
+                for (int i = border; i < border + arr.Length / n; i++)
                 {
-                    for (int i = arr.Length * threadIdxLocal / threadsNum; i < arr.Length * (threadIdxLocal + 1) / threadsNum; i++)
+                    if (i >= arr.Length) { break; }
+                    if (min > arr[i])
                     {
-                        if (arr[i] < min)
-                        {
-                            lock (_lock)
-                            {
-                                if (arr[i] < min)
-                                {
-                                    min = arr[i];
-                                }
-                            }
-                        }
+                        min = arr[i];
+                        n_min = i;
                     }
-                });
-
-                threads[threadIdx].Start();
+                }
+                Console.WriteLine(index + " " + min);
+                Min();
+                min = 0;
             }
-
-            foreach (var item in threads)
+            finally
             {
-                item.Join();
+                if (acquiredLock) Monitor.Exit(locker);
             }
-
-            var endTime = DateTime.Now;
-
-           
-            Console.WriteLine($"Поток:{threadsNum}  Минимум: {min}  Время: {(endTime - startTime).TotalMilliseconds}ms");
         }
+        public static void Min()
+        {
+            if (all_min > min)
+            {
+                all_min = min;
+            }
+        }
+        
     }
 }
+
+
+    
+ 
+

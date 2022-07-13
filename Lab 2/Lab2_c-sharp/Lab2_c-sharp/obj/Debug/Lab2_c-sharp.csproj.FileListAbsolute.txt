@@ -6,3 +6,11 @@ C:\Users\zmei0\source\repos\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.csp
 C:\Users\zmei0\source\repos\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.csproj.CoreCompileInputs.cache
 C:\Users\zmei0\source\repos\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.exe
 C:\Users\zmei0\source\repos\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.pdb
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\bin\Debug\Lab2_c-sharp.exe.config
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\bin\Debug\Lab2_c-sharp.exe
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\bin\Debug\Lab2_c-sharp.pdb
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.csproj.AssemblyReference.cache
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.csproj.SuggestedBindingRedirects.cache
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.csproj.CoreCompileInputs.cache
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.exe
+D:\3 course\POP\My1\Lab 2\Lab2_c-sharp\Lab2_c-sharp\obj\Debug\Lab2_c-sharp.pdb
