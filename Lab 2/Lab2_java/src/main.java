@@ -12,11 +12,14 @@ public class main {
     public static int n_min;
 
     public static void main(String[] args) {
-        arr = new int[1000000];
+        arr = new int[100];
         Random r = new Random();
+        random r1=new random();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(-100000, 100000);
+            arr[i] = r.nextInt(0, 1000);
         }
+        int num=r1.Next(0,arr.length-1);
+        arr[num]=-1;
         String str = JOptionPane.showInputDialog(null, "ведите количество потоков");
         n = Integer.parseInt(str);
         border = arr.length / n;
@@ -31,8 +34,9 @@ public class main {
                 e.printStackTrace();
             }
         }
-        System.out.println("Минимальное число масива: "+main.min_full);
+        System.out.println("Минимальное число масива: "+main.min_full+" номер елемента: "+n_min+"");
     }
+
 }
 
 
