@@ -14,6 +14,7 @@ public class ThreadMain implements Runnable {
  public void  run(){
             setmin();
         }
+
         public void setmin(){
             main.min=Integer.MAX_VALUE;
             for (int i = border; i < border + arr.length / n; i++) {
