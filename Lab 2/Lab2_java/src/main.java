@@ -17,7 +17,7 @@ public class main {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = r.nextInt(0, 1000);
         }
-        int num=r.nextInt(0,1000);
+        int num=r.nextInt(0,100);
         arr[num]=-1;
         String str = JOptionPane.showInputDialog(null, "ведите количество потоков");
         n = Integer.parseInt(str);

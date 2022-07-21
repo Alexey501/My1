@@ -13,7 +13,7 @@ namespace Lab2_c_sharp
         public static int all_min = int.MaxValue;
         public static int n_min;
         public static int border;
-        public static int[] arr =new int[1000000];
+        public static int[] arr =new int[100];
         public static void Main(string[] args)
         {
            
@@ -23,10 +23,10 @@ namespace Lab2_c_sharp
             int n = Convert.ToInt32(str);
             border = arr.Length / n;
             object locker = new object();
-            int num= random.Next(0,1000000);
+            int num= random.Next(0,100);
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = random.Next(0, 100000);
+                arr[i] = random.Next(0, 1000);
             }
             arr[num] = -1;
             for (int i = 0; i < n; i++)
@@ -36,6 +36,7 @@ namespace Lab2_c_sharp
             }
             Console.WriteLine("Минимальный елемент масива: "+n_min+" його значення: "+all_min);
             Console.ReadLine();
+            Console.ReadKey();
         }
         public static void ThreadMain(int n, int[] arr, int border,int index,object locker)
         {
@@ -44,7 +45,7 @@ namespace Lab2_c_sharp
             {
                 for (int i = border; i < border + arr.Length / n; i++)
                 {
-                    if (i >= arr.Length) { break; }
+                    
                     if (min > arr[i])
                     {
                         min = arr[i];
@@ -53,7 +54,7 @@ namespace Lab2_c_sharp
                 }
                 Console.WriteLine("Поток: "+index+" "+min);
                 Min();
-                min = 0;
+                min = int.MaxValue;
             }
             finally
             {

@@ -24,7 +24,7 @@ public class ThreadMain implements Runnable {
                 main.Min[n_arr]=main.min;
             }
             border = border + arr.length / n;
-            System.out.println(main.min);
+            System.out.println("Минимальное значение потока"+main.min);
             Min();
             n_Min();
         }

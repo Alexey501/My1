@@ -9,8 +9,7 @@ namespace Lab_1__C_sharp_
 {
     internal class Program
     {
-        static private Random random = new Random();
-
+        private static bool canStop;
         static void Main(string[] args)
         {
             Console.Write("Введите количество потоков: ");
@@ -18,21 +17,25 @@ namespace Lab_1__C_sharp_
             int n = Convert.ToInt32(str);
             for (int i = 0; i < n; i++)
             {
-                new Thread(() => calculation(i, random.Next(0, 999), random.Next(1, 5))).Start();
+               (new Thread(calculation)).Start();
             }
+            (new Thread(Stoper)).Start();
+            Console.ReadKey();
         }  
 
-        static void calculation(int id, int end, int step)
+        static void calculation()
         {
-            int sum = 0;
-            int count = 0;
-            for (int i = 0; i < end; i += step)
+            long sum = 0;
+            do
             {
-                sum += i;
-                count++;
-            }
-            Console.WriteLine("id: {0};сумма : {1}; Количество операций: {2}", id, sum, count);
-            Console.ReadKey();
+                sum++;
+            } while (!canStop);
+            Console.WriteLine(sum);
+        }
+        static void Stoper()
+        {
+            Thread.Sleep(3*1000);
+            canStop = true;
         }
     }
 }
