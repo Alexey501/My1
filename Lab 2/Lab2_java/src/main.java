@@ -17,7 +17,6 @@ public class main {
         int n = Integer.parseInt(str);
         border = arr.length / n;
         int m []=new int[n];
-
         for (int i = 0; i < n; i++) {
            ThreadMain t = new ThreadMain(n, arr, border * i,i);
            t.run();
@@ -26,13 +25,13 @@ public class main {
         }
         System.out.println("Минимальный елемент масива: "+n_min+" значение масива: "+Min(m,n,full));
     }
-public static int Min(int[] m, int n, int full){
-      for(int i=0;i<n;i++){
-          if(full>m[i]){
+    public static int Min(int[] m, int n, int full){
+        for(int i=0;i<n;i++){
+            if(full>m[i]){
               full=m[i];
-          }
-      }
-      return full;
+            }
+        }
+        return full;
 }
 }
 

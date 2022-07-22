@@ -12,7 +12,7 @@ public class ThreadMain implements Runnable {
         this.border=border;
         this.n_arr=n_arr;
     }
- public void  run(){
+    public void  run(){
             setmin();
         }
         public synchronized void setmin(){
@@ -29,10 +29,8 @@ public class ThreadMain implements Runnable {
                 }
             }
     }
-    public int getmin(){
-            return min;
+    public int getmin(){return min;
     }
-    public int getN_min(){
-        return n_min;
+    public int getN_min(){return n_min;
     }
 }
