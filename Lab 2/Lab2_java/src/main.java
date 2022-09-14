@@ -3,7 +3,8 @@ import java.util.Random;
 
 public class main {
     public static void main(String[] args) {
-        int[] arr= new int[100];
+        int array_length=100;
+        int[] arr= new int[array_length];
         int border;
         int full=Integer.MAX_VALUE;
         int n_min = 0;
@@ -11,7 +12,7 @@ public class main {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = r.nextInt(0, 1000);
         }
-        int num=r.nextInt(0,100);
+        int num=r.nextInt(0,array_length);
         arr[num]=-1;
         String str = JOptionPane.showInputDialog(null, "ведите количество потоков");
         int n = Integer.parseInt(str);
