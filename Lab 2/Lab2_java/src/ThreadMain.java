@@ -1,36 +1,40 @@
 public class ThreadMain implements Runnable {
     int n;
-    int []arr;
+    int[] arr;
     int border;
-    int n_arr;
-    int n_min;
-    int Min=Integer.MAX_VALUE;
-    int min=Integer.MAX_VALUE;
-    public  ThreadMain(int n, int[] arr, int border,int n_arr){
-        this.n=n;
-        this.arr=arr;
-        this.border=border;
-        this.n_arr=n_arr;
+    int min = Integer.MAX_VALUE;
+    int min_n;
+    main main = new main();
+
+    public ThreadMain(int n, int[] arr, int border) {
+        this.n = n;
+        this.arr = arr;
+        this.border = border;
+
     }
-    public void  run(){
-            setmin();
-        }
-        public synchronized void setmin(){
-            for (int i = border; i < border + arr.length / n; i++)
+
+    public void run() {
+        for (int i = border; i < border + arr.length / n; i++) {
             if (min > arr[i]) {
                 min = arr[i];
+                min_n = i;
             }
-            border = border + arr.length / n;
-            System.out.println("Минимальное значение потока: " + min);
-            for(int i=0;i<arr.length;i++){
-                if(Min>arr[i]){
-                    Min=arr[i];
-                    n_min=i;
-                }
-            }
+        }
+        if (n == 0) {
+            main.setMin(min);
+            main.setMin_n(min_n);
+        }
+        System.out.println("Минимальное значение потока: " + min + " индекс " + min_n);
+        min();
     }
-    public int getmin(){return min;
-    }
-    public int getN_min(){return n_min;
+
+    public void min() {
+       synchronized (this) {
+            if (min <= main.getMin()) {
+                main.setMin(min);
+                main.setMin_n(min_n);
+                System.out.println(main.getMin());}
+      }
     }
 }
+

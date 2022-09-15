@@ -2,38 +2,38 @@ import javax.swing.*;
 import java.util.Random;
 
 public class main {
+    private static int  min=Integer.MAX_VALUE;
+    private static int min_n=-1;
+
     public static void main(String[] args) {
-        int array_length=100;
+        int array_length=40;
         int[] arr= new int[array_length];
         int border;
-        int full=Integer.MAX_VALUE;
-        int n_min = 0;
         Random r = new Random();
+
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(0, 1000);
+            arr[i] = r.nextInt(0, 10);
         }
         int num=r.nextInt(0,array_length);
         arr[num]=-1;
         String str = JOptionPane.showInputDialog(null, "ведите количество потоков");
         int n = Integer.parseInt(str);
         border = arr.length / n;
-        int m []=new int[n];
         for (int i = 0; i < n; i++) {
-           ThreadMain t = new ThreadMain(n, arr, border * i,i);
-           t.run();
-           m[i]=t.getmin();
-           n_min=t.getN_min();
+            new ThreadMain(n, arr, border * i).run();
         }
-        System.out.println("Минимальный елемент масива: "+n_min+" значение масива: "+Min(m,n,full));
+        System.out.println("Минимальный елемент масива: "+ min + " индекс "+ min_n);
     }
-    public static int Min(int[] m, int n, int full){
-        for(int i=0;i<n;i++){
-            if(full>m[i]){
-              full=m[i];
-            }
-        }
-        return full;
-}
+    public void setMin(int min){
+        this.min=min;
+    }
+
+    public int getMin() {
+        return min;
+    }
+    public void setMin_n(int min_n){
+        this.min_n=min_n;
+    }
 }
 
 
