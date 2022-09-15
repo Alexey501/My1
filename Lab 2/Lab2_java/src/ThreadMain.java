@@ -4,15 +4,16 @@ public class ThreadMain implements Runnable {
     int border;
     int min = Integer.MAX_VALUE;
     int min_n;
-    main main = new main();
+    int count;
+    int [] array;
+    main main= new main();
 
-    public ThreadMain(int n, int[] arr, int border) {
+    public ThreadMain(int n, int[] arr, int border,int count) {
         this.n = n;
         this.arr = arr;
         this.border = border;
-
+        this.count=count;
     }
-
     public void run() {
         for (int i = border; i < border + arr.length / n; i++) {
             if (min > arr[i]) {
@@ -20,21 +21,33 @@ public class ThreadMain implements Runnable {
                 min_n = i;
             }
         }
-        if (n == 0) {
-            main.setMin(min);
-            main.setMin_n(min_n);
-        }
-        System.out.println("Минимальное значение потока: " + min + " индекс " + min_n);
+        main.setElem_min(min,count);
+        main.setElem_min_n(min_n,count);
+        System.out.println("Минимальное значение потока: " + main.getElem_min(count) + " индекс " + main.getElem_min_n(count));
+        stop();
         min();
     }
-
-    public void min() {
-       synchronized (this) {
-            if (min <= main.getMin()) {
-                main.setMin(min);
-                main.setMin_n(min_n);
-                System.out.println(main.getMin());}
-      }
+    public synchronized int[] stop(){
+        main.setThreadCount(count);
+        array=main.getElem_min_array();
+        while (main.getThreadCount() < n-1) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return array;
+    }
+    public synchronized void min(){
+        min=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            if(min>array[i]){
+                min=array[i];
+                min_n=main.getElem_min_n(i);
+            }
+        }
+        System.out.println("Минимальный елемент масива: " + min + " индекс " + min_n);
     }
 }
 
