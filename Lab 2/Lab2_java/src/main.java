@@ -7,13 +7,13 @@ public class main {
     private static int [] elem_min;
     private static int [] elem_min_n;
     public static void main(String[] args) {
-        int array_length=1000;
+        int array_length=100;
         int[] arr= new int[array_length];
         int border;
         Random r = new Random();
 
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(0, 100);
+            arr[i] = r.nextInt(0, 20);
         }
         int num=r.nextInt(0,array_length);
         arr[num]=-1;
@@ -45,9 +45,7 @@ public class main {
     public void setElem_min_n(int elem_min_n,int index){
         this.elem_min_n[index]=elem_min_n;
     }
-    public int [] getElem_min_array(){
-        return elem_min;
-    }
+    public int [] getElem_min_array(){return elem_min;}
 }
 
 
