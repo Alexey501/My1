@@ -6,6 +6,7 @@ public class main {
     private int threadCount;
     private static int [] elem_min;
     private static int [] elem_min_n;
+    private int n;
     public static void main(String[] args) {
         int array_length=100;
         int[] arr= new int[array_length];
@@ -26,6 +27,27 @@ public class main {
            Thread thread=new Thread( new ThreadMain(n, arr, border * i,i));
            thread.start();
         }
+    }
+    public synchronized int[] stop(){
+        while (getThreadCount() < n) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        notify();
+        return getElem_min_array();
+    }
+    public void min() {
+        min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (min > array[i]) {
+                min = array[i];
+                min_n = main.getElem_min_n(i);
+            }
+        }
+        System.out.println("Минимальный елемент масива: " + min + " индекс " + min_n);
     }
     public void setThreadCount(int count){
         this.threadCount=count;

@@ -24,29 +24,8 @@ public class ThreadMain implements Runnable {
         main.setElem_min(min,count);
         main.setElem_min_n(min_n,count);
         System.out.println("Минимальное значение потока: " + main.getElem_min(count) + " индекс " + main.getElem_min_n(count));
-        main.setThreadCount(count);
-        array=stop();
-        min();
+        main.setThreadCount(count+1);
+        System.out.println(count);
     }
-    public synchronized int[] stop(){
-        while (main.getThreadCount() < n-1) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        return main.getElem_min_array();
-    }
-    public void min() {
-            min = Integer.MAX_VALUE;
-            for (int i = 0; i < n; i++) {
-                if (min > array[i]) {
-                    min = array[i];
-                    min_n = main.getElem_min_n(i);
-                }
-            }
-            System.out.println("Минимальный елемент масива: " + min + " индекс " + min_n);
-        }
 }
 
